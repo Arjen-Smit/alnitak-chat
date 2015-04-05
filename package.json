@@ -1,0 +1,22 @@
+{
+  "name": "alnitak-chat",
+  "version": "1.0.0",
+  "description": "Chat application build with firebase",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Arjen-Smit/alnitak-chat.git"
+  },
+  "author": "Arjen Smit",
+  "license": "Alnitak",
+  "bugs": {
+    "url": "https://github.com/Arjen-Smit/alnitak-chat/issues"
+  },
+  "homepage": "https://github.com/Arjen-Smit/alnitak-chat",
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}
