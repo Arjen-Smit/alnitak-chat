@@ -3,47 +3,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
-section {
-	padding-right: 200px;
-}
-
-section .participants {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 40px;
-	width: 200px;
-
-	color: #888;
-
-	ul {
-		padding: 0px;
-		margin: 0px;
-		list-style: none;
-		li {
-			line-height: 49px;
-			.avatar {
-				width: 60px;
-				padding-right: 6px;
-				margin-right: 10px;
-			}
-			@each $color in $colors {
-				$n: index($colors, $color);
-				&:nth-child(#{$n}) {
-					img {
-						background-color: $color;
-					}
-			 	}
-			}
-		}
-	}
-}
-
-.messageBar {
-	position: absolute;
-	bottom: 0px;
-	left: 0px;
-	width: 100%;
-	height: 40px;
-	border-top: 1px solid #AAA;
+.avatar {
+	border-radius: 50%;
+	width: 32px;
 }

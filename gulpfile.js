@@ -26,8 +26,8 @@ gulp.task('default',['clean'], function() {
     gulp.start('run');
 });
 
-gulp.task('run',['icons','images'], function() {
-    gulp.start('sass');
+gulp.task('run',['icons','images','views'], function() {
+    gulp.start('sass', 'javascript');
 });
 
 gulp.task('dev', function() {
@@ -38,7 +38,9 @@ gulp.task('dev', function() {
 gulp.task('watch', function() {
     config.productionEnvironment = false;
     gulp.start('default');
-    gulp.watch([config.sourceDir + 'scss/**/*.scss', './bower_components/**/*.scss'],['sass']);
+    gulp.watch([config.sourceDir + 'views/**/**.*'],['views']);
+    gulp.watch([config.sourceDir + 'scss/**/*.scss', config.bower_components + '/**/*.scss'],['sass']);
+    gulp.watch([config.sourceDir + 'javascript/**/*.js', config.bower_components + '/**/*.js'],['javascript']);
 });
 
 gulp.task('clean', function() {
@@ -54,6 +56,11 @@ gulp.task('images', function() { 
 gulp.task('icons', function() { 
     return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
         .pipe(gulp.dest(config.assetsDir + '/fonts')); 
+});
+
+gulp.task('views', function() { 
+    return gulp.src(config.sourceDir + '/views/**.*') 
+        .pipe(gulp.dest(config.assetsDir + '/views')); 
 });
 
 /* Stylesheet compilation */
@@ -75,3 +82,20 @@ gulp.task('sass', function () {
         .pipe(gulpif(config.productionEnvironment, csso(), sourcemaps.write('../maps')))
         .pipe(gulp.dest(config.assetsDir + 'css/'))
 });
+
+gulp.task('javascript', function() {
+    gulp.src([
+        config.bowerDir + "angularjs/angular.js",
+        config.bowerDir + "angular-route/angular-route.js",
+        config.bowerDir + "firebase/firebase.js",
+        config.bowerDir + "angularfire/dist/angularfire.js",
+        config.sourceDir + "javascript/app.js",
+        // config.sourceDir + "javascript/mainCtrl.js",
+        config.sourceDir + "javascript/*/*.js"
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(concat('app.js'))
+    .pipe(gulpif(config.productionEnvironment, uglify(), sourcemaps.write('../maps')))
+    .pipe(gulp.dest(config.assetsDir + 'javascript/'))
+});
+

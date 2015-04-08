@@ -1,0 +1,11 @@
+<form data-ng-submit='sendMessage()'>
+	<input type='text' data-ng-model='text' placeholder='Type your text here.'/>
+	<input type='submit' value='Send'/>
+</form>
+<div class='messages'>
+	<p ng-repeat='message in messages'>
+		<img class='avatar' ng-src="{{message.picture}}"/>
+		<span><em>{{message.name}}</em>: </span>
+		<span>{{message.message}}</span>
+	</p>
+</div>
