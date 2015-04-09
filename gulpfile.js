@@ -89,8 +89,10 @@ gulp.task('javascript', function() {
         config.bowerDir + "angular-route/angular-route.js",
         config.bowerDir + "firebase/firebase.js",
         config.bowerDir + "angularfire/dist/angularfire.js",
+        config.bowerDir + "angular-window-events/window_event_broadcasts.js",
+        config.bowerDir + "angular-scroll-glue/src/scrollglue.js",
+        config.bowerDir + "favico.js/favico.js",
         config.sourceDir + "javascript/app.js",
-        // config.sourceDir + "javascript/mainCtrl.js",
         config.sourceDir + "javascript/*/*.js"
     ])
     .pipe(sourcemaps.init())

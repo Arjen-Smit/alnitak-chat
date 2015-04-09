@@ -1,11 +1,13 @@
-<form data-ng-submit='sendMessage()'>
-	<input type='text' data-ng-model='text' placeholder='Type your text here.'/>
-	<input type='submit' value='Send'/>
-</form>
-<div class='messages'>
-	<p ng-repeat='message in messages'>
-		<img class='avatar' ng-src="{{message.picture}}"/>
-		<span><em>{{message.name}}</em>: </span>
-		<span>{{message.message}}</span>
-	</p>
-</div>
+<div class='chat'>
+	<form data-ng-submit='sendMessage()'>
+		<input type='text' class='input-text' data-ng-model='text' placeholder='Type your text here.'/>
+		<input type='submit' value='Send' class='submit'/>
+	</form>
+	<div class='messages' scroll-glue>
+		<div class='message' ng-repeat='message in messages'>
+			<img class='avatar' ng-src="{{message.picture}}"/>
+			<span class='name'>{{message.name}}</span>
+			<p class='message-text'>{{message.message}}</p>
+		</div>
+	</div>
+<div>

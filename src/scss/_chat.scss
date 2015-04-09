@@ -1,0 +1,51 @@
+.chat {
+
+    .messages {
+    	overflow: auto;
+        position: absolute;
+        top: 0px;
+        bottom: 50px;
+        left: 0px;
+        right: 0px;
+
+        .message {
+            position: relative;
+            padding: 10px 0px;
+            border-top: 1px solid #888;
+
+            .avatar {
+                position: absolute;
+                left: 5px;
+                top: 12px;
+                width: 45px;
+                border-radius: 5px;
+            }
+            .name,
+            .message-text {
+                padding-left: 60px;
+            }
+            .name {
+                font-weight: bold;
+            }
+        }
+    }
+
+    form {
+        position: absolute;
+        padding: 10px;
+        bottom: 0px;
+        height: 50px;
+        left: 0px;
+        right: 0px;
+        background-color: #444;
+        
+        input.input-text {
+            width: 100%;
+        }
+
+        input.submit {
+            display: none;
+        }
+
+    }
+}

@@ -19,6 +19,9 @@
     "angularjs": "~1.3.15",
     "firebase": "~2.2.3",
     "angularfire": "~1.0.0",
-    "angular-route": "~1.3.15"
+    "angular-route": "~1.3.15",
+    "angular-scroll-glue": "~2.0.5",
+    "favico.js": "~0.3.7",
+    "angular-window-events": "*"
   }
 }
