@@ -19,7 +19,7 @@ var     gulp = require('gulp'),
         plumber = require('gulp-plumber')
         sass = require('gulp-sass'),
         csso = require('gulp-csso'),
-        autoprefixer = require('gulp-autoprefixer');        
+        autoprefixer = require('gulp-autoprefixer');
 
 /* Executable tasks */
 gulp.task('default',['clean'], function() {
@@ -97,7 +97,7 @@ gulp.task('javascript', function() {
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    .pipe(gulpif(config.productionEnvironment, uglify(), sourcemaps.write('../maps')))
+    .pipe(gulpif(config.productionEnvironment, uglify({ mangle: false }), sourcemaps.write('../maps')))
     .pipe(gulp.dest(config.assetsDir + 'javascript/'))
 });
 
