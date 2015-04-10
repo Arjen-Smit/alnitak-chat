@@ -10,7 +10,7 @@ var config = {
 /* Gulp requirements */
 var     gulp = require('gulp'),
         gutil = require('gulp-util'),
-        clean = require('gulp-clean'),
+		del = require('del'),
         uglify = require('gulp-uglify'),
         plumber = require('gulp-plumber'),
         concat = require('gulp-concat'),
@@ -43,9 +43,8 @@ gulp.task('watch', function() {
     gulp.watch([config.sourceDir + 'javascript/**/*.js', config.bower_components + '/**/*.js'],['javascript']);
 });
 
-gulp.task('clean', function() {
-	return gulp.src(config.assetsDir, {read:false})
-		.pipe(clean());
+gulp.task('clean', function(cb) {
+	del([config.assetsDir], cb);
 });
 
 gulp.task('images', function() { 

@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/Arjen-Smit/alnitak-chat",
   "devDependencies": {
+    "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
-    "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-csso": "^1.0.0",
     "gulp-if": "^1.2.5",
