@@ -6,7 +6,8 @@
 	<div class='messages' scroll-glue>
 		<div class='message' ng-repeat='message in messages'>
 			<img class='avatar' ng-src="{{message.picture}}"/>
-			<span class='name'>{{message.name}}</span>
+			<span class='name'>{{message.name}}</span> <span>({{message.timestamp | timeAgo}})</span>
+
 			<p class='message-text'>{{message.message}}</p>
 		</div>
 	</div>

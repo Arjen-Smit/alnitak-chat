@@ -26,7 +26,7 @@ gulp.task('default',['clean'], function() {
     gulp.start('run');
 });
 
-gulp.task('run',['icons','images','views'], function() {
+gulp.task('run',['images','views'], function() {
     gulp.start('sass', 'javascript');
 });
 
@@ -50,11 +50,6 @@ gulp.task('clean', function(cb) {
 gulp.task('images', function() { 
     return gulp.src(config.sourceDir + '/images/**.*') 
         .pipe(gulp.dest(config.assetsDir + '/images')); 
-});
-
-gulp.task('icons', function() { 
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
-        .pipe(gulp.dest(config.assetsDir + '/fonts')); 
 });
 
 gulp.task('views', function() { 
@@ -90,6 +85,7 @@ gulp.task('javascript', function() {
         config.bowerDir + "angularfire/dist/angularfire.js",
         config.bowerDir + "angular-window-events/window_event_broadcasts.js",
         config.bowerDir + "angular-scroll-glue/src/scrollglue.js",
+        config.bowerDir + "angular-timeago/src/timeAgo.js",
         config.bowerDir + "favico.js/favico.js",
         config.sourceDir + "javascript/app.js",
         config.sourceDir + "javascript/*/*.js"
