@@ -1,5 +1,4 @@
 'use strict';
-
 var chatApp = angular.module('chatApp', ['ngRoute', 'chatControllers']);
 
 chatApp.config(['$routeProvider',
@@ -22,4 +21,4 @@ chatApp.config(['$routeProvider',
 		});
 	}]);
 
-var chatControllers = angular.module('chatControllers', ['firebase', 'luegg.directives', 'favico.service', 'windowEventBroadcasts','yaru22.angular-timeago']);
+var chatControllers = angular.module('chatControllers', ['firebase', 'luegg.directives', 'favico.service', 'windowEventBroadcasts', 'yaru22.angular-timeago', 'chatApp.config']);

@@ -1,7 +1,7 @@
 'use strict';
 
-chatControllers.controller('chatCtrl', ['$scope', '$firebaseAuth', '$firebaseArray', '$location', 'favicoService', function($scope, $firebaseAuth, $firebaseArray, $location, favicoService) {
-	var ref = new Firebase("https://alnitak-chat.firebaseio.com/");
+chatControllers.controller('chatCtrl', ['$scope', 'config', '$firebaseAuth', '$firebaseArray', '$location', 'favicoService', function($scope, config, $firebaseAuth, $firebaseArray, $location, favicoService) {
+	var ref = new Firebase(config.api);
  	var authData = ref.getAuth();
  	if (!authData) {
  		$location.path('/login');
@@ -9,7 +9,7 @@ chatControllers.controller('chatCtrl', ['$scope', '$firebaseAuth', '$firebaseArr
 
  	$scope.user = authData.google.cachedUserProfile;
 
- 	var messages = new Firebase("https://alnitak-chat.firebaseio.com/messages");
+ 	var messages = new Firebase(config.api + "messages");
 	$scope.messages = $firebaseArray(messages);
 
 	var awayFor = 0;

@@ -11,6 +11,7 @@ var config = {
 var     gulp = require('gulp'),
         gutil = require('gulp-util'),
 		del = require('del'),
+        gulpNgConfig = require('gulp-ng-config'),
         uglify = require('gulp-uglify'),
         plumber = require('gulp-plumber'),
         concat = require('gulp-concat'),
@@ -22,7 +23,7 @@ var     gulp = require('gulp'),
         autoprefixer = require('gulp-autoprefixer');
 
 /* Executable tasks */
-gulp.task('default',['clean'], function() {
+gulp.task('default',['clean','config'], function() {
     gulp.start('run');
 });
 
@@ -38,13 +39,25 @@ gulp.task('dev', function() {
 gulp.task('watch', function() {
     config.productionEnvironment = false;
     gulp.start('default');
+    gulp.watch([config.sourceDir + 'config/config.json'],['config']);
     gulp.watch([config.sourceDir + 'views/**/**.*'],['views']);
     gulp.watch([config.sourceDir + 'scss/**/*.scss', config.bower_components + '/**/*.scss'],['sass']);
     gulp.watch([config.sourceDir + 'javascript/**/*.js', config.bower_components + '/**/*.js'],['javascript']);
 });
 
 gulp.task('clean', function(cb) {
-	del([config.assetsDir], cb);
+	del([
+        config.assetsDir,
+        config.sourceDir + "javascript/config/*"
+        ], cb);
+});
+
+gulp.task('config', function(cb) {
+    gulp.src(config.sourceDir + 'config/config.json')
+        .pipe(gulpNgConfig('chatApp.config'))
+        .pipe(gulp.dest(config.sourceDir + 'javascript/config'));
+
+        return cb();
 });
 
 gulp.task('images', function() { 
@@ -90,6 +103,7 @@ gulp.task('javascript', function() {
         config.sourceDir + "javascript/app.js",
         config.sourceDir + "javascript/*/*.js"
     ])
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(gulpif(config.productionEnvironment, uglify({ mangle: false }), sourcemaps.write('../maps')))

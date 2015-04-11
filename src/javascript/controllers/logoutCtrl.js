@@ -1,6 +1,6 @@
 'use strict';
 
-chatControllers.controller('logoutCtrl', function($scope, $firebaseAuth, $location) {
-	var ref = new Firebase("https://alnitak-chat.firebaseio.com/");
+chatControllers.controller('loginCtrl', ['$scope', 'config', '$firebaseAuth', '$location', function($scope, config, $firebaseAuth, $location) {
+	var ref = new Firebase(config.api);
 	ref.unauth();
-});
+}]);

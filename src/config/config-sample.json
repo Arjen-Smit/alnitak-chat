@@ -1,0 +1,5 @@
+{
+	"config": {
+		"api": "https://<yourapp>.firebaseio.com/"	
+	}
+}
