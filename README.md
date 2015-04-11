@@ -5,8 +5,8 @@ Setup:
 rename src/config/config-sample.json to config.json and fill in the correct firebase app name.
 
 then run the following commands:
+```console
 npm install
-
 bower install
-
 gulp
+```
