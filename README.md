@@ -6,5 +6,7 @@ rename src/config/config-sample.json to config.json and fill in the correct fire
 
 then run the following commands:
 npm install
+
 bower install
+
 gulp
