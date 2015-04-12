@@ -1,5 +1,12 @@
 {
-	"config": {
-		"api": "https://<yourapp>.firebaseio.com/"	
-	}
+  "development": {
+    "config": {
+      "api": "https://<your-dev-app>.firebaseio.com/"
+    }
+  },
+  "production": {
+    "config": {
+      "api": "https://<your-app>.firebaseio.com/"
+    }
+  }
 }

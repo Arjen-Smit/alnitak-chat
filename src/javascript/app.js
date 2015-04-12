@@ -21,4 +21,4 @@ chatApp.config(['$routeProvider',
 		});
 	}]);
 
-var chatControllers = angular.module('chatControllers', ['firebase', 'luegg.directives', 'favico.service', 'windowEventBroadcasts', 'yaru22.angular-timeago', 'chatApp.config']);
+var chatControllers = angular.module('chatControllers', ['firebase', 'chatApp.config', 'luegg.directives', 'favico.service', 'windowEventBroadcasts', 'yaru22.angular-timeago']);

@@ -53,8 +53,9 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('config', function(cb) {
+    var envString = config.productionEnvironment ? 'production' : 'development';
     gulp.src(config.sourceDir + 'config/config.json')
-        .pipe(gulpNgConfig('chatApp.config'))
+        .pipe(gulpNgConfig('chatApp.config', {environment: envString}))
         .pipe(gulp.dest(config.sourceDir + 'javascript/config'));
 
         return cb();
