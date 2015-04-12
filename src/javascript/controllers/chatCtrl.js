@@ -6,7 +6,7 @@ chatControllers.controller('chatCtrl', ['$scope', 'config', '$firebaseAuth', '$f
  	if (!authData) {
  		$location.path('/login');
  	}
-
+    
  	$scope.user = authData.google.cachedUserProfile;
 
  	var messages = new Firebase(config.api + "messages");
@@ -25,18 +25,18 @@ chatControllers.controller('chatCtrl', ['$scope', 'config', '$firebaseAuth', '$f
 		awayFor = 0;
 		away= true;
   	});
-  	
+
 	messages.on("value", function(snapshot) {
 		awayFor++;
 	  	if (awayFor !== 0 && away) {
-	  		favicoService.badge(awayFor);	  
+	  		favicoService.badge(awayFor);
 	  	}
 	});
 
   	$scope.sendMessage = function() {
   		if ($scope.text) {
 	  		$scope.messages.$add({
-  				'name': $scope.user.name, 
+  				'name': $scope.user.name,
   				'message': $scope.text,
   				'picture': $scope.user.picture,
   				'timestamp': new Date().getTime()
