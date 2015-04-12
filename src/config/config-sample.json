@@ -1,12 +1,16 @@
 {
-  "development": {
-    "config": {
-      "api": "https://<your-dev-app>.firebaseio.com/"
-    }
-  },
-  "production": {
-    "config": {
-      "api": "https://<your-app>.firebaseio.com/"
-    }
-  }
+	"development": {
+		"config": {
+			"title": "My Chat (Development)",
+			"api": "https://<your-dev-app>.firebaseio.com/",
+			"favicon": "favicon-dev.png"
+    	}
+  	},
+  	"production": {
+    	"config": {
+    		"title": "My Chat",
+      		"api": "https://<your-app>.firebaseio.com/",
+      		"favicon": "favicon.png"
+    	}
+  	}
 }

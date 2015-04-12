@@ -2,10 +2,10 @@
 <html lang="en" data-ng-app="chatApp">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>Alnitak-chat</title>
+		<title>{{config.title}}</title>
 		<script src="/assets/javascript/app.js"></script>
 		<link href="/assets/css/app.css" rel="stylesheet">
-		<link href="/assets/images/favicon.png" type="image/png" rel="icon">
+		<link href="/assets/images/{{config.favicon}}" type="image/png" rel="icon">
 	</head>
 	<body>
 		<div ng-view></div>
