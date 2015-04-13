@@ -22,6 +22,7 @@
     "angular-scroll-glue": "~2.0.5",
     "favico.js": "~0.3.7",
     "angular-window-events": "*",
-    "angular-timeago": "~0.1.9"
+    "angular-timeago": "~0.1.9",
+    "angular-moment": "~0.10.0"
   }
 }

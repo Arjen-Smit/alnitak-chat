@@ -99,7 +99,8 @@ gulp.task('javascript', function() {
         config.bowerDir + "angularfire/dist/angularfire.js",
         config.bowerDir + "angular-window-events/window_event_broadcasts.js",
         config.bowerDir + "angular-scroll-glue/src/scrollglue.js",
-        config.bowerDir + "angular-timeago/src/timeAgo.js",
+        config.bowerDir + "moment/moment.js",
+        config.bowerDir + "angular-moment/angular-moment.js",
         config.bowerDir + "favico.js/favico.js",
         config.sourceDir + "javascript/app.js",
         config.sourceDir + "javascript/*/*.js"

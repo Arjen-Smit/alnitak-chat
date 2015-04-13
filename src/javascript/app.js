@@ -1,6 +1,6 @@
 'use strict';
 
-var chatApp = angular.module('chatApp', ['ngRoute', 'chatControllers', 'chatApp.config']);
+var chatApp = angular.module('chatApp', ['ngRoute', 'chatControllers', 'chatApp.config', 'angularMoment']);
 
 // Loading the config into the rootscope to be used in the main html document
 chatApp.run(function ($rootScope, config) {
@@ -27,4 +27,4 @@ chatApp.config(['$routeProvider',
             });
     }]);
 
-var chatControllers = angular.module('chatControllers', ['firebase', 'chatApp.config', 'luegg.directives', 'favico.service', 'windowEventBroadcasts', 'yaru22.angular-timeago']);
+var chatControllers = angular.module('chatControllers', ['firebase', 'chatApp.config', 'luegg.directives', 'favico.service', 'windowEventBroadcasts']);
