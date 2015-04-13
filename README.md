@@ -10,3 +10,10 @@ npm install
 bower install
 gulp
 ```
+
+##TODO:
+```list
+Userprofiles
+Userpresence system
+Userpresence notifications
+```
