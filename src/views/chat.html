@@ -1,4 +1,8 @@
 <div class='chat'>
+    <div class='profile'>
+        <img class='avatar' ng-src="{{profile.picture}}"/>
+        <span class='name'>{{profile.name}}</span>
+    </div>
 	<form data-ng-submit='sendMessage()'>
 		<input type='text' class='input-text' data-ng-model='text' placeholder='Type your text here.'/>
 		<input type='submit' value='Send' class='submit'/>
@@ -11,4 +15,7 @@
 			<p class='message-text'>{{message.message}}</p>
 		</div>
 	</div>
-<div>
+    <div class='precense'>
+        
+    </div>
+</div>
