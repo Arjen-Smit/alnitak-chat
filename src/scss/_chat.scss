@@ -53,18 +53,53 @@
             .name {
                 font-weight: bold;
             }
+            &.my-message {
+                background-color: #f6f6f6;
+            }
         }
     }
 
-    .precense {
+    .attendees {
         position: absolute;
         right: 0px;
         top: 55px;
         bottom: 50px;
         width: 200px;
         background-color: #f1f5f8;
+        padding: 5px;
+
+
+        .attendee {
+            padding: 5px;
+            span {
+                color: #aaa;
+            }
+        }
+
+        .avatar,
+        span {
+            transition: all .5s;
+        }
+
+        .avatar {
+            transition: all .5s;
+            width: 24px;
+            border: 2px solid #686d73;
+            border-radius: 50%;
+            filter: grayscale(1);
+        }
+
+
         @media screen and (max-width: 640px) {
             width: 0px;
+        }
+
+        .online {
+            .avatar {
+                 filter: grayscale(0);
+                 width: 45px;
+            }
+            color: #000;
         }
     }
 

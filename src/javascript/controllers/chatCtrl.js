@@ -6,7 +6,6 @@ chatControllers.controller('chatCtrl', ['$scope', 'config', '$firebaseAuth', '$f
  	if (!authData) {
  		$location.path('/login');
  	} else {
-
         $scope.user = authData.google.cachedUserProfile;
 
         var messages = new Firebase(config.api + "messages");
@@ -16,12 +15,27 @@ chatControllers.controller('chatCtrl', ['$scope', 'config', '$firebaseAuth', '$f
         var syncObject = $firebaseObject(profile);
         syncObject.$bindTo($scope, "profile");
 
+        var attendees = new Firebase(config.api + "users");
+        $scope.attendees = $firebaseArray(attendees);
+
+        var presence = new Firebase(config.api + "presence");
+        $scope.presence = $firebaseArray(presence);
+
+        var amOnline = new Firebase(config.api + '.info/connected');
+        var userRef = new Firebase(config.api + 'users/' + authData.google.id + "/status");
+        amOnline.on('value', function(snapshot) {
+            if (snapshot.val()) {
+                userRef.onDisconnect().set("offline");
+                userRef.set("online");
+            }
+        });
+
         var awayFor = 0;
         var away = false;
 
         $scope.$on('$windowFocus', function(broadcastEvent, browserEvent) {
             awayFor = 0;
-            favicoService.badge(awayFor);
+            favicoService.reset();
             away = false;
         });
 

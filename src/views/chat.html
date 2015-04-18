@@ -8,14 +8,17 @@
 		<input type='submit' value='Send' class='submit'/>
 	</form>
 	<div class='messages' scroll-glue>
-		<div class='message' ng-repeat='message in messages'>
+		<div ng-class="{'my-message':(message.id===profile.$id)}" class='message' ng-repeat='message in messages'>
 			<img class='avatar' ng-src="{{message.picture}}"/>
 			<span class='name'>{{message.name}}</span>
             <span class='timeAgo'>( <span am-time-ago="message.timestamp"></span> )</span>
 			<p class='message-text'>{{message.message}}</p>
 		</div>
 	</div>
-    <div class='precense'>
-        
+    <div class='attendees'>
+        <div  ng-class="attendee.status" class='attendee' ng-repeat='attendee in attendees | orderBy:"name"'>
+            <img class='avatar' ng-src="{{attendee.picture}}"/>
+            <span>{{attendee.name}}</span>
+        </div>
     </div>
 </div>
