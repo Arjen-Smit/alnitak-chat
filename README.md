@@ -13,7 +13,5 @@ gulp
 
 ##TODO:
 ```list
-Userprofiles
-Userpresence system
-Userpresence notifications
+idle status (shrinking head, with fading color)
 ```
